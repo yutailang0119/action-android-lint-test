@@ -1,0 +1,1117 @@
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/fragment/AboutFragment.kt:43: Warning: Field requires API level 24 (current min is 21): android.icu.util.Calendar#YEAR [InlinedApi]
+          getString(R.string.app_copyright, Calendar.getInstance().get(Calendar.YEAR)),
+                                                                       ~~~~~~~~~~~~~
+
+   Explanation for issues of type "InlinedApi":
+   This check scans through all the Android API field references in the
+   application and flags certain constants, such as static final integers and
+   Strings, which were introduced in later versions. These will actually be
+   copied into the class files rather than being referenced, which means that
+   the value is available even when running on older devices. In some cases
+   that's fine, and in other cases it can result in a runtime crash or
+   incorrect behavior. It depends on the context, so consider the code
+   carefully and decide whether it's safe and can be suppressed or whether the
+   code needs to be guarded.
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
+
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/fragment/AboutFragment.kt:43: Error: Call requires API level 24 (current min is 21): android.icu.util.Calendar#getInstance [NewApi]
+          getString(R.string.app_copyright, Calendar.getInstance().get(Calendar.YEAR)),
+                                                     ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/fragment/AboutFragment.kt:43: Error: Call requires API level 24 (current min is 21): android.icu.util.Calendar#get [NewApi]
+          getString(R.string.app_copyright, Calendar.getInstance().get(Calendar.YEAR)),
+                                                                   ~~~
+
+   Explanation for issues of type "NewApi":
+   This check scans through all the Android API calls in the application and
+   warns about any calls that are not available on all versions targeted by
+   this application (according to its minimum SDK attribute in the manifest).
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
+
+   If you are deliberately setting android: attributes in style definitions,
+   make sure you place this in a values-vNN folder in order to avoid running
+   into runtime conflicts on certain devices where manufacturers have added
+   custom attributes whose ids conflict with the new ones on later platforms.
+
+   Similarly, you can use tools:targetApi="11" in an XML file to indicate that
+   the element will only be inflated in an adequate context.
+
+/home/ashu/code/trynoice/android-app/app/src/main/AndroidManifest.xml:31: Warning: Attribute usesCleartextTraffic is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+    android:usesCleartextTraffic="false"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/AndroidManifest.xml:112: Warning: Attribute autoVerify is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+      <intent-filter android:autoVerify="true">
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
+
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:105: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.i(LOG_TAG, "onAudioFocusChange: gained audio focus")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:108: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+          Log.i(LOG_TAG, "onAudioFocusChange: resuming delayed playback")
+                ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:116: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.i(LOG_TAG, "onAudioFocusChange: permanently lost audio focus")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:124: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.i(LOG_TAG, "onAudioFocusChange: temporarily lost audio focus")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:144: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.i(LOG_TAG, "requestFocus: audio focus request is delayed")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:151: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.w(LOG_TAG, "requestFocus: audio focus request failed")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:158: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.i(LOG_TAG, "requestFocus: audio focus request granted")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:170: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.w(LOG_TAG, "abandonFocus: audio focus request failed")
+              ~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/java/com/github/ashutoshgngwr/noice/engine/AudioFocusManager.kt:173: Error: The logging tag can be at most 23 characters, was 24 (DefaultAudioFocusManager) [LongLogTag]
+        Log.i(LOG_TAG, "abandonFocus: audio focus request granted")
+              ~~~~~~~
+
+   Explanation for issues of type "LongLogTag":
+   Log tags are only allowed to be at most 23 tag characters long.
+
+/home/ashu/code/trynoice/android-app/app/build.gradle:103: Warning: A newer version of androidx.activity:activity-ktx than 1.4.0 is available: 1.5.0 [GradleDependency]
+  implementation 'androidx.activity:activity-ktx:1.4.0'
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:104: Warning: A newer version of androidx.appcompat:appcompat than 1.4.1 is available: 1.4.2 [GradleDependency]
+  implementation 'androidx.appcompat:appcompat:1.4.1'
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:107: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.3 is available: 2.1.4 [GradleDependency]
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:108: Warning: A newer version of androidx.core:core-ktx than 1.7.0 is available: 1.8.0 [GradleDependency]
+  implementation 'androidx.core:core-ktx:1.7.0'
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:110: Warning: A newer version of androidx.fragment:fragment-ktx than 1.4.1 is available: 1.5.0 [GradleDependency]
+  implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:111: Warning: A newer version of androidx.lifecycle:lifecycle-common-java8 than 2.4.1 is available: 2.5.0 [GradleDependency]
+  implementation "androidx.lifecycle:lifecycle-common-java8:$deps.lifecycleVersion"
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:112: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.4.1 is available: 2.5.0 [GradleDependency]
+  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$deps.lifecycleVersion"
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:115: Warning: A newer version of androidx.navigation:navigation-fragment-ktx than 2.4.2 is available: 2.5.0 [GradleDependency]
+  implementation "androidx.navigation:navigation-fragment-ktx:$deps.navVersion"
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:116: Warning: A newer version of androidx.navigation:navigation-ui-ktx than 2.4.2 is available: 2.5.0 [GradleDependency]
+  implementation "androidx.navigation:navigation-ui-ktx:$deps.navVersion"
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:124: Warning: A newer version of com.google.android.exoplayer:exoplayer-core than 2.17.1 is available: 2.18.0 [GradleDependency]
+  implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:127: Warning: A newer version of com.google.android.material:material than 1.5.0 is available: 1.6.1 [GradleDependency]
+  implementation 'com.google.android.material:material:1.5.0'
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:139: Warning: A newer version of com.google.android.gms:play-services-base than 18.0.1 is available: 18.1.0 [GradleDependency]
+  fullImplementation 'com.google.android.gms:play-services-base:18.0.1'
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/build.gradle:142: Warning: A newer version of com.google.firebase:firebase-bom than 29.1.0 is available: 30.2.0 [GradleDependency]
+  fullImplementation platform('com.google.firebase:firebase-bom:29.1.0')
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-cs/strings.xml:51: Error: For locale "cs" (Czech) the following quantities should also be defined: many [MissingQuantity]
+    <plurals name="time_hours">
+    ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-cs/strings.xml:56: Error: For locale "cs" (Czech) the following quantities should also be defined: many [MissingQuantity]
+    <plurals name="time_minutes">
+    ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-lt/strings.xml:83: Error: For locale "lt" (Lithuanian) the following quantities should also be defined: many [MissingQuantity]
+    <plurals name="time_hours">
+    ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-fr-rFR/strings.xml:87: Error: For locale "fr" (French) the following quantities should also be defined: many [MissingQuantity]
+    <plurals name="time_minutes">
+    ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-fr-rFR/strings.xml:91: Error: For locale "fr" (French) the following quantities should also be defined: many [MissingQuantity]
+    <plurals name="time_hours">
+    ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-lt/strings.xml:114: Error: For locale "lt" (Lithuanian) the following quantities should also be defined: many [MissingQuantity]
+    <plurals name="time_minutes">
+    ^
+
+   Explanation for issues of type "MissingQuantity":
+   Different languages have different rules for grammatical agreement with
+   quantity. In English, for example, the quantity 1 is a special case. We
+   write "1 book", but for any other quantity we'd write "n books". This
+   distinction between singular and plural is very common, but other languages
+   make finer distinctions.
+
+   This lint check looks at each translation of a <plural> and makes sure that
+   all the quantity strings considered by the given language are provided by
+   this translation.
+
+   For example, an English translation must provide a string for
+   quantity="one". Similarly, a Czech translation must provide a string for
+   quantity="few".
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:8: Error: "presets" is not translated in "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="presets">Presets</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:9: Error: "sleep_timer" is not translated in "ca" (Catalan), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="sleep_timer">Sleep Timer</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:10: Error: "support_development" is not translated in "br" (Breton), "sq" (Albanian), "eo" (Esperanto) [MissingTranslation]
+    <string name="support_development">Support Development</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:11: Error: "wake_up_timer" is not translated in "br" (Breton), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="wake_up_timer">Wake-up Timer</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:12: Error: "submit_feedback" is not translated in "br" (Breton), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="submit_feedback">Submit Feedback</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:13: Error: "intensity" is not translated in "ca" (Catalan), "eo" (Esperanto), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="intensity">Intensity</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:14: Error: "random_preset_description" is not translated in "de" (German), "lt" (Lithuanian), "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="random_preset_description">The generated preset is likely to contain sounds with chosen keywords. Moreover, intense presets will attempt to play more sounds simultaneously.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:15: Error: "okay" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "eu" (Basque) [MissingTranslation]
+    <string name="okay">Okay</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:16: Error: "random_preset" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="random_preset">Random Preset</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:17: Error: "cancel" is not translated in "bn" (Bengali), "ca" (Catalan), "eu" (Basque) [MissingTranslation]
+    <string name="cancel">Cancel</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:18: Error: "dismiss" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="dismiss">Dismiss</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:19: Error: "name" is not translated in "ca" (Catalan) or "eu" (Basque) [MissingTranslation]
+    <string name="name">Name</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:20: Error: "pause" is not translated in "bn" (Bengali), "ca" (Catalan), "eu" (Basque) [MissingTranslation]
+    <string name="pause">Pause</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:21: Error: "preset_already_exists" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_already_exists">Preset with the given name already exists!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:22: Error: "preset_name_cannot_be_empty" is not translated in "bn" (Bengali), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_name_cannot_be_empty">Preset name cannot be empty!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:23: Error: "preset_saved" is not translated in "bn" (Bengali), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_saved">Preset saved!</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:24: Error: "save" is not translated in "bn" (Bengali), "ca" (Catalan), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="save">Save</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:25: Error: "save_preset" is not translated in "bn" (Bengali), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="save_preset">Save Preset</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:26: Error: "play" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan) [MissingTranslation]
+    <string name="play">Play</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:27: Error: "play_pause" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="play_pause">play or pause</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:28: Error: "stop" is not translated in "bn" (Bengali), "ca" (Catalan), "eo" (Esperanto) [MissingTranslation]
+    <string name="stop">Stop</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:29: Error: "volume" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="volume">Sound volume</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:30: Error: "add_to_home_screen" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="add_to_home_screen">Add to home screen</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:31: Error: "delete" is not translated in "bn" (Bengali), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="delete">Delete</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:32: Error: "open_context_menu" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "da" (Danish) [MissingTranslation]
+    <string name="open_context_menu">Open context menu</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:33: Error: "preset_delete_confirmation" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_delete_confirmation">Confirm delete %s?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:34: Error: "preset_deleted" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_deleted">Preset deleted!</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:35: Error: "preset_does_not_exist" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_does_not_exist">Preset does not exist. It may have been deleted!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:36: Error: "preset_info__description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="preset_info__description">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:40: Error: "rename" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="rename">Rename</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:41: Error: "pinned_shortcuts_not_supported" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="pinned_shortcuts_not_supported">Your default launcher does not support adding shortcuts.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:42: Error: "presets_as_home_screen_summary" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="presets_as_home_screen_summary">Show \"presets\" on app startup (requires app restart)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:43: Error: "auto_sleep_schedule_cancelled" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="auto_sleep_schedule_cancelled">Auto sleep timer cancelled!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:44: Error: "reset" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "da" (Danish) [MissingTranslation]
+    <string name="reset">Reset</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:45: Error: "sleep_timer_description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="sleep_timer_description">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:49: Error: "schedule" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque) [MissingTranslation]
+    <string name="schedule">Schedule</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:50: Error: "select_preset" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="select_preset">Select Preset</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:51: Error: "wake_up_timer_cancelled" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="wake_up_timer_cancelled">Wake-up Timer cancelled!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:52: Error: "wake_up_timer_schedule_set" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="wake_up_timer_schedule_set">The alarm will go off in %1$s %2$s %3$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:53: Error: "time_bridge" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="time_bridge">and</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:62: Error: "wake_up_timer_description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="wake_up_timer_description">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:66: Error: "app_theme_light" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål) [MissingTranslation]
+    <string name="app_theme_light">Light</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:67: Error: "app_theme_dark" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="app_theme_dark">Dark</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:68: Error: "app_theme_system_default" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="app_theme_system_default">System default</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:69: Error: "app_description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="app_description">Relax and improve focus with natural calming noise.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:70: Error: "appintro__chromecast_desc" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__chromecast_desc">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:73: Error: "appintro__chromecast_title" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__chromecast_title">Chromecast enabled</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:74: Error: "appintro__getting_started_desc_0" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__getting_started_desc_0">Swipe left to get to know all the features!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:75: Error: "appintro__getting_started_desc_1" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__getting_started_desc_1">Let\'s get started!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:76: Error: "appintro__getting_started_title" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "da" (Danish) [MissingTranslation]
+    <string name="appintro__getting_started_title">Welcome</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:77: Error: "appintro__presets_desc" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__presets_desc">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:81: Error: "appintro__presets_title" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__presets_title">Save your favourite mixes</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:82: Error: "appintro__library_desc" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__library_desc">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:86: Error: "appintro__library_title" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__library_title">Create your perfect surroundings</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:87: Error: "appintro__timer_desc" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__timer_desc">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:91: Error: "appintro__timer_title" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appintro__timer_title">Trouble falling asleep or waking up?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:92: Error: "support_development__donate" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="support_development__donate">Donate</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:93: Error: "support_development__donate_description" is not translated in "de" (German), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="support_development__donate_description">If you have not purchased the premium subscription, you can make a one-time payment. It will help us sustain the development of the free features and keep them ad-free forever.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:94: Error: "support_development__donate_google_play_description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="support_development__donate_google_play_description">Your payment will be securely handled by Google Play. Depending on your location, additional taxes _may be_ added to the final amount.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:95: Error: "support_development__donate_thank_you_description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="support_development__donate_thank_you_description">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:98: Error: "support_development__share" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="support_development__share">Share with friends</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:99: Error: "support_development__share_description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="support_development__share_description">You can also help us by telling your friends about us. More users will provide us feedback from several different perspectives and help us improve our services.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:100: Error: "cast_media" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="cast_media">Connect to Chromecast</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:101: Error: "in_app_feedback__description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="in_app_feedback__description">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:106: Error: "in_app_feedback__title" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="in_app_feedback__title">Submit a review</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:107: Error: "later" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="later">Later</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:108: Error: "never" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="never">Never</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:109: Error: "notification_channel_default__description" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="notification_channel_default__description">Media playback controls</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:110: Error: "notification_channel_default__name" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="notification_channel_default__name">Media Playback</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:111: Error: "add_to_app_shortcuts" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="add_to_app_shortcuts">Add to app shortcuts</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:112: Error: "remove_from_app_shortcuts" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="remove_from_app_shortcuts">Remove from app shortcuts</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:113: Error: "app_shortcut_removed" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="app_shortcut_removed">Preset has been removed from app shortcuts!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:114: Error: "app_shortcut_created" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="app_shortcut_created">Preset has been added to app shortcuts!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:115: Error: "app_shortcut_creation_failed" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="app_shortcut_creation_failed">Failed to add the preset to app shortcuts!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:116: Error: "settings" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="settings">Settings</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:117: Error: "presets_as_home_screen" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="presets_as_home_screen">\"Presets\" as home screen</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:118: Error: "appearance" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="appearance">Appearance</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:119: Error: "sound_fade_in_duration" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="sound_fade_in_duration">Sound fade-in duration</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:120: Error: "sound_fade_in_duration_summary" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="sound_fade_in_duration_summary">Time duration for fading-in sounds (in seconds)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:121: Error: "sound_fade_out_duration" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sound_fade_out_duration">Sound fade-out duration</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:122: Error: "sound_fade_out_duration_summary" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sound_fade_out_duration_summary">Time duration for fading-out sounds (in seconds)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:123: Error: "pinned_shortcut_creation_failed" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="pinned_shortcut_creation_failed">Failed to add the shortcut to the home screen!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:124: Error: "pinned_shortcut_created" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="pinned_shortcut_created">Shortcut has been added to the home screen!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:125: Error: "skip_to_prev" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="skip_to_prev">Previous preset</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:126: Error: "skip_to_next" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="skip_to_next">Next preset</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:127: Error: "unsaved_preset" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="unsaved_preset">Unsaved Preset</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:128: Error: "ignore_audio_focus_changes" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="ignore_audio_focus_changes">Ignore audio focus changes</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:129: Error: "ignore_audio_focus_changes_summary_off" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="ignore_audio_focus_changes_summary_off">Pause when other apps play audio</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:130: Error: "ignore_audio_focus_changes_summary_on" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="ignore_audio_focus_changes_summary_on">Do not react when other apps play audio</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:131: Error: "share" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="share">Share</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:132: Error: "export_presets" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="export_presets">Export to a file</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:133: Error: "export_presets_summary" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="export_presets_summary">Export the current snapshot of the saved presets to an external file</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:134: Error: "import_presets" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="import_presets">Import from a file</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:135: Error: "import_presets_summary" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="import_presets_summary">Importing saved presets from an external file will overwrite existing presets, if any</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:136: Error: "remove_all_app_shortcuts" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="remove_all_app_shortcuts">Remove all app shortcuts</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:137: Error: "remove_all_app_shortcuts_confirmation" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="remove_all_app_shortcuts_confirmation">It will remove all preset shortcuts from the app shortcut menu. Do you want to proceed?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:138: Error: "all_app_shortcuts_removed" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="all_app_shortcuts_removed">All app shortcuts have been removed!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:139: Error: "failed_to_write_file" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="failed_to_write_file">Failure on writing to the selected file!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:140: Error: "export_presets_successful" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="export_presets_successful">Successfully exported presets to the file!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:141: Error: "failed_to_read_file" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="failed_to_read_file">Failure on reading the selected file!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:142: Error: "invalid_import_file_format" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="invalid_import_file_format">The import file format is invalid!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:143: Error: "import_presets_successful" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="import_presets_successful">Successfully imported presets from the file!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:144: Error: "should_display_sound_icons" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "da" (Danish) [MissingTranslation]
+    <string name="should_display_sound_icons">Display sound icons</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:145: Error: "share_usage_data_consent_title" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="share_usage_data_consent_title">Data Sharing Preferences</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:146: Error: "share_usage_data_consent_message" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="share_usage_data_consent_message">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:153: Error: "accept" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="accept">Accept</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:154: Error: "decline" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="decline">Decline</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:155: Error: "others" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="others">Others</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:156: Error: "should_share_usage_data" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="should_share_usage_data">Share usage and behaviour data</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:157: Error: "should_share_usage_data_summary" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="should_share_usage_data_summary">Automatically share usage and behaviour data with the developers</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:158: Error: "failed_to_load_inapp_purchases" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="failed_to_load_inapp_purchases">Failed to load in-app purchase details. Please try again later!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:159: Error: "failed_to_purchase" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="failed_to_purchase">Failed to start payment flow. Please try again later!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:160: Error: "payment_pending" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="payment_pending">We\'ll notify you as soon as we finish processing your payment.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:161: Error: "created_by" is not translated in "bn" (Bengali), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="created_by">Created by</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:162: Error: "enable_media_buttons" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="enable_media_buttons">Enable media buttons</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:163: Error: "enable_media_buttons_summary" is not translated in "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "eo" (Esperanto), "eu" (Basque), "nb" (Norwegian Bokmål), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="enable_media_buttons_summary">Use hardware media buttons to control playback</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:164: Error: "account" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="account">Account</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:165: Error: "app" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="app">App</string>
+            ~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:166: Error: "support" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="support">Support</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:167: Error: "sign_in" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sign_in">Sign in</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:168: Error: "sign_up" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sign_up">Sign up</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:169: Error: "view_subscription_plans" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="view_subscription_plans">View plans</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:170: Error: "sign_out" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sign_out">Sign out</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:171: Error: "update_details" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="update_details">Update details</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:172: Error: "delete_account" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="delete_account">Delete account</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:173: Error: "network_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="network_error">The network is unreachable.</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:174: Error: "unknown_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="unknown_error">An unknown error occurred.</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:175: Error: "welcome_back" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="welcome_back">Welcome back!</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:176: Error: "welcome" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="welcome">Welcome!</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:177: Error: "sign_in_message" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sign_in_message">Please enter your email to sign-in.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:178: Error: "sign_up_message" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="sign_up_message">Please enter your name and email to sign-up.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:179: Error: "email" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="email">Email</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:180: Error: "invalid_name" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="invalid_name">The entered name is invalid!</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:181: Error: "invalid_email" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="invalid_email">The entered email is invalid!</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:182: Error: "account_locked_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="account_locked_error">Your email is temporarily locked from making sign-in attempts until %1$s.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:183: Error: "sign_up_email_sent" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="sign_up_email_sent">We\'ve emailed you a sign-in link at \"%1$s\".</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:184: Error: "sign_in_email_sent" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="sign_in_email_sent">We\'ve emailed you a sign-in link at \"%1$s\" if this address belongs to a registered account.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:185: Error: "sign_in_link_tip" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="sign_in_link_tip">Please open the received link using Noice to complete the sign-in process.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:186: Error: "retry" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="retry">Retry</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:187: Error: "open_mailbox" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="open_mailbox">Open Mailbox</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:188: Error: "mailbox_app_not_found" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="mailbox_app_not_found">Uh-oh! We couldn\'t find a mailbox app on your device!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:189: Error: "signing_in" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="signing_in">Signing in</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:190: Error: "sign_in_token_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="sign_in_token_error">The sign-in link appears to be invalid. It may have expired. Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:191: Error: "sign_in_sucessful" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="sign_in_sucessful">Successfully signed in!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:192: Error: "cont" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="cont">Continue</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:193: Error: "sign_out_confirmation" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="sign_out_confirmation">Confirm signing out?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:194: Error: "signing_out" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="signing_out">Signing out</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:195: Error: "delete_account_confirmation" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="delete_account_confirmation">On deleting your account, you will immediately lose access to your profile. If you have an ongoing subscription, it will be cancelled. Please note that it may take us a while to completely erase your data from our servers.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:196: Error: "i_understand" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="i_understand">I understand.</string>
+            ~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:197: Error: "deleting_account" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="deleting_account">Deleting account</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:198: Error: "duplicate_email_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="duplicate_email_error">The entered email is associated with another account.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:199: Error: "account_details_update_success" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="account_details_update_success">Your account details were updated successfully.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:200: Error: "offline" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="offline">You\'re offline</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:201: Error: "back_online" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch) [MissingTranslation]
+    <string name="back_online">Back online</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:202: Error: "premium" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="premium">Premium</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:203: Error: "monthly" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="monthly">Monthly</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:204: Error: "quarterly" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="quarterly">Quarterly</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:205: Error: "bi_yearly" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="bi_yearly">Bi-yearly</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:206: Error: "yearly" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish) [MissingTranslation]
+    <string name="yearly">Yearly</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:215: Error: "total_price" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="total_price">%1$s total</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:216: Error: "monthly_price" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="monthly_price">%1$s/month</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:217: Error: "benefits" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="benefits">Benefits</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:218: Error: "benefit_0" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="benefit_0">Natural variations in sounds</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:219: Error: "benefit_1" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="benefit_1">High-quality audio streaming</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:220: Error: "benefit_2" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="benefit_2">Offline playback</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:221: Error: "select_a_plan" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="select_a_plan">Select a plan</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:222: Error: "processing_payment" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="processing_payment">Processing payment</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:223: Error: "payment_processing_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="payment_processing_error">Uh-oh! We were unable to process your payment. The amount should be automatically refunded if deducted. If you do not get your refund within a week, please notify us.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:224: Error: "plans" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="plans">Plans</string>
+            ~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:225: Error: "get_premium" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="get_premium">Get premium</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:226: Error: "sign_in_to_continue" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="sign_in_to_continue">Please sign-in or sign-up to continue.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:227: Error: "initialising_subscription" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="initialising_subscription">Initialising subscription</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:228: Error: "user_already_subscribed" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="user_already_subscribed">You are already subscribed.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:229: Error: "confirming_payment" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="confirming_payment">Confirming payment</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:230: Error: "subscription_payment_confirmation_failed" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_payment_confirmation_failed">Uh-oh! We had some trouble while waiting for the payment confirmation. It may be due to a network error or a delay from the payment provider. We\'ll update your subscription status as soon as we hear from the provider. Please check your subscription status after some time.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:231: Error: "subscription_payment_complete" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_payment_complete">Thank you for subscribing to Noice Premium. Your subscription is now active.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:232: Error: "subscription_payment_cancelled" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_payment_cancelled">The subscription payment was cancelled!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:233: Error: "subscription_purchases" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_purchases">Subscription purchases</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:234: Error: "renews_on" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="renews_on">Renews on %1$s</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:235: Error: "ends_on" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="ends_on">Ends on %1$s</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:236: Error: "started_on" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="started_on">Started on %1$s</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:237: Error: "ended_on" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="ended_on">Ended on %1$s</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:238: Error: "paid_using" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="paid_using">Paid using %1$s</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:239: Error: "subscription_payment_pending" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_payment_pending">Payment is pending for this purchase.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:240: Error: "subscription_payment_refunded" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_payment_refunded">We cancelled this purchase and initiated a refund for it.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:241: Error: "change_plan" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="change_plan">Change plan</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:242: Error: "manage_subscription" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="manage_subscription">Manage Subscription</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:243: Error: "cancel_subscription" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="cancel_subscription">Cancel Subscription</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:244: Error: "cancel_subscription_confirmation" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="cancel_subscription_confirmation">Are you sure you want to cancel your subscription to Noice Premium\? Upon cancellation, your subscription will automatically terminate at the end of the current billing cycle. Your current billing cycle ends on %1$s.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:245: Error: "cancelling_subscription" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="cancelling_subscription">Cancelling subscription</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:246: Error: "no_subscription_purchases_found" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="no_subscription_purchases_found">We don\'t think that you have tried Noice Premium yet. Your previous subscriptions will appear here once you have used Noice Premium at least once.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:247: Error: "faqs" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="faqs">Frequently Asked Questions</string>
+            ~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:248: Error: "made_in_india" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="made_in_india">Made with ❤ in India</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:249: Error: "sound_info" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="sound_info">About this sound</string>
+            ~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:250: Error: "has_premium_segments" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="has_premium_segments">This sound has premium components.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:251: Error: "looping_sound" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="looping_sound">This sound loops seamlessly.</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:252: Error: "non_looping_sound" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="non_looping_sound">This sound contains breaks in-between.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:253: Error: "media_sources" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="media_sources">Media Sources</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:254: Error: "profile_load_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="profile_load_error">Oops! We couldn\'t fetch your account details. %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:255: Error: "cancel_subscription_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="cancel_subscription_error">Oh no! We couldn\'t cancel your subscription. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:256: Error: "delete_account_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="delete_account_error">Oh no! We couldn\'t delete your account. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:257: Error: "account_details_update_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="account_details_update_error">Oh no! We couldn\'t update your details. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:258: Error: "subscription_initialisation_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_initialisation_error">Oops! We couldn\'t start the billing flow. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:259: Error: "library_load_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="library_load_error">Oops! We couldn\'t fetch the sound library. %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:260: Error: "sign_in_email_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="sign_in_email_error">Uh-oh! We couldn\'t email you a sign-in link. %1$s Please try again later!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:261: Error: "sign_out_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="sign_out_error">Oh no! We couldn\'t sign you out. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:262: Error: "subscription_plans_load_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_plans_load_error">Oops! We couldn\'t fetch subscription plans. %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:263: Error: "subscription_purchases_load_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="subscription_purchases_load_error">Uh-oh! We couldn\'t fetch your subscription purchase history. %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:264: Error: "playback" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="playback">Playback</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:265: Error: "audio_quality" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="audio_quality">Audio quality</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:266: Error: "audio_quality_summary" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="audio_quality_summary">The maximum audio quality for streaming. Medium, High and Ultra only work when you\'re subscribed.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:267: Error: "audio_quality_low" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="audio_quality_low">Low (128 kbps)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:268: Error: "audio_quality_medium" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="audio_quality_medium">Medium (192 kbps)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:269: Error: "audio_quality_high" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="audio_quality_high">High (256 kbps)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:270: Error: "audio_quality_ultra" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="audio_quality_ultra">Ultra (320 kbps)</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:271: Error: "preset_url_invalid" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="preset_url_invalid">The preset URL appears to be invalid!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:272: Error: "playing" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="playing">Playing</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:273: Error: "pausing" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="pausing">Pausing</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:274: Error: "paused" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="paused">Paused</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:275: Error: "stopping" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="stopping">Stopping</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:276: Error: "keywords" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="keywords">Keywords</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:277: Error: "loading" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="loading">Loading</string>
+            ~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:278: Error: "tags_load_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="tags_load_error">Oh no! We couldn\'t load sound keywords. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:279: Error: "generate_preset_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="generate_preset_error">Uh-oh! We failed to generate a preset. %1$s Please try again!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:280: Error: "sign_up_tos" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="sign_up_tos">By continuing, you agree to our [Terms of Service](https://trynoice.com/terms-of-service) and [Privacy Policy](https://trynoice.com/privacy-policy).</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:281: Error: "gift_card" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card">Gift Card</string>
+            ~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:282: Error: "privacy_policy" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="privacy_policy">Privacy Policy</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:283: Error: "terms_of_service" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="terms_of_service">Terms of Service</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:284: Error: "app_license" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="app_license">Licensed under GNU GPL-3.0</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:285: Error: "redeem_gift_card" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="redeem_gift_card">Redeem gift card</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:286: Error: "gift_card_code" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_code">Gift card code</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:287: Error: "invalid_gift_card_code" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="invalid_gift_card_code">The entered gift card code is invalid!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:288: Error: "redeem" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="redeem">Redeem</string>
+            ~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:289: Error: "gift_card_load_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_load_error">Oops! We couldn\'t fetch the gift card. %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:290: Error: "gift_card_not_found" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_not_found">The given code doesn\'t exist.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:291: Error: "gift_card_already_redeemed" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_already_redeemed">The gift card with the given code has already been redeemed.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:292: Error: "gift_card_expired" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_expired">The gift card with the given code has expired.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:293: Error: "gift_card_details" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_details">Redeeming this gift card will offer you the premium subscription until %1$s.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:294: Error: "gift_card_redeem_error" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="gift_card_redeem_error">Oh no! We couldn\'t redeem your gift card. %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:295: Error: "redeemed_using_code" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="redeemed_using_code">Redeemed using \'%1$s\'</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:296: Error: "reach_us" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="reach_us">Reach us</string>
+            ~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:297: Error: "write_review_play_store" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="write_review_play_store">Write a review on Google Play</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:298: Error: "connect_through_email" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="connect_through_email">Connect through email</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:299: Error: "third_party_attributions" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="third_party_attributions">Third-party attributions</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:300: Error: "oss_licenses" is not translated in "de" (German), "fi" (Finnish), "ru" (Russian), "lt" (Lithuanian), "bn" (Bengali), "fr" (French), "br" (Breton), "ca" (Catalan), "sq" (Albanian), "sv" (Swedish), "in" (Indonesian), "el" (Greek), "eo" (Esperanto), "es" (Spanish), "zh" (Chinese), "cs" (Czech), "eu" (Basque), "ar" (Arabic), "vi" (Vietnamese), "nb" (Norwegian Bokmål), "ja" (Japanese), "fa" (Persian), "pl" (Polish), "da" (Danish), "nl" (Dutch), "tr" (Turkish) [MissingTranslation]
+    <string name="oss_licenses">Open-source software licenses</string>
+            ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "MissingTranslation":
+   If an application has more than one locale, then all the strings declared
+   in one language should also be translated in all other languages.
+
+   If the string should not be translated, you can add the attribute
+   translatable="false" on the <string> element, or you can define all your
+   non-translatable strings in a resource file called donottranslate.xml. Or,
+   you can ignore the issue with a tools:ignore="MissingTranslation"
+   attribute.
+
+   You can tell lint (and other tools) which language is the default language
+   in your res/values/ folder by specifying tools:locale="languageCode" for
+   the root <resources> element in your resource file. (The tools prefix
+   refers to the namespace declaration http://schemas.android.com/tools.)
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/donottranslate.xml:20: Warning: Did you mean "VKS!" instead of "VKS1"? [Typos]
+    https://docs.google.com/forms/d/e/1FAIpQLSdEfOCyWfQ4QFMnLqlLj3BF27VKS1C-CQIokbmkXFchf6QZ6g/viewform?usp=sf_link
+                                                                      ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-pt-rBR/strings.xml:241: Warning: "Bem vindo" is a common misspelling; did you mean "Bem-vindo"? [Typos]
+    <string name="welcome_back">Bem vindo de volta!</string>
+                                ^
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-pt-rBR/strings.xml:280: Warning: "Bem vindo" is a common misspelling; did you mean "Bem-vindo"? [Typos]
+    <string name="welcome">Seja Bem vindo!</string>
+                                ^
+
+   Explanation for issues of type "Typos":
+   This check looks through the string definitions, and if it finds any words
+   that look like likely misspellings, they are flagged.
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-hi/strings.xml:200: Error: The quantity 'one' matches more than one specific number in this locale (0, 1), but the message did not include a formatting argument (such as %d). This is usually an internationalization error. See full issue explanation for more. [ImpliedQuantity]
+        <item quantity="one">पहला दिन मुफ़्त</item>
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-pt-rBR/strings.xml:208: Error: The quantity 'one' matches more than one specific number in this locale (0, 1), but the message did not include a formatting argument (such as %d). This is usually an internationalization error. See full issue explanation for more. [ImpliedQuantity]
+        <item quantity="one">Primeiro dia grátis</item>
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-uk-rUA/strings.xml:209: Error: The quantity 'one' matches more than one specific number in this locale (1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …), but the message did not include a formatting argument (such as %d). This is usually an internationalization error. See full issue explanation for more. [ImpliedQuantity]
+        <item quantity="one">Перший день безплатно</item>
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ImpliedQuantity":
+   Plural strings should generally include a %s or %d formatting argument. In
+   locales like English, the one quantity only applies to a single value, 1,
+   but that's not true everywhere. For example, in Slovene, the one quantity
+   will apply to 1, 101, 201, 301, and so on. Similarly, there are locales
+   where multiple values match the zero and two quantities.
+
+   In these locales, it is usually an error to have a message which does not
+   include a formatting argument (such as '%d'), since it will not be clear
+   from the grammar what quantity the quantity string is describing.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/donottranslate.xml:4: Warning: Formatting %d followed by words ("the"): This should probably be a plural rather than a string [PluralsCandidate]
+  <string name="app_copyright">2019–%1$d the Noice Authors</string>
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/drawable/ic_about_copyright.xml:9: Warning: Very long vector path (902 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector. [VectorPath]
+    android:pathData="M10.08 10.86c0.05-0.33 0.16-0.62 0.3-0.87s0.34-0.46 0.59-0.62c0.24-0.15 0.54-0.22 0.91-0.23 0.23 0.01 0.44 0.05 0.63 0.13 0.2 0.09 0.38 0.21 0.52 0.36s0.25 0.33 0.34 0.53 0.13 0.42 0.14 0.64h1.79c-0.02-0.47-0.11-0.9-0.28-1.29s-0.4-0.73-0.7-1.01-0.66-0.5-1.08-0.66-0.88-0.23-1.39-0.23c-0.65 0-1.22 0.11-1.7 0.34s-0.88 0.53-1.2 0.92-0.56 0.84-0.71 1.36S8 11.29 8 11.87v0.27c0 0.58 0.08 1.12 0.23 1.64s0.39 0.97 0.71 1.35 0.72 0.69 1.2 0.91 1.05 0.34 1.7 0.34c0.47 0 0.91-0.08 1.32-0.23s0.77-0.36 1.08-0.63 0.56-0.58 0.74-0.94 0.29-0.74 0.3-1.15h-1.79c-0.01 0.21-0.06 0.4-0.15 0.58s-0.21 0.33-0.36 0.46-0.32 0.23-0.52 0.3c-0.19 0.07-0.39 0.09-0.6 0.1-0.36-0.01-0.66-0.08-0.89-0.23-0.25-0.16-0.45-0.37-0.59-0.62s-0.25-0.55-0.3-0.88-0.08-0.67-0.08-1v-0.27c0-0.35 0.03-0.68 0.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/drawable/ic_baseline_settings_32.xml:9: Warning: Very long vector path (847 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector. [VectorPath]
+    android:pathData="M19.14 12.94c0.04-0.3 0.06-0.61 0.06-0.94 0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14 0.23-0.41 0.12-0.61l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39 0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4 2.81c-0.04-0.24-0.24-0.41-0.48-0.41h-3.84c-0.24 0-0.43 0.17-0.47 0.41L9.25 5.35C8.66 5.59 8.12 5.92 7.63 6.29L5.24 5.33c-0.22-0.08-0.47 0-0.59 0.22L2.74 8.87C2.62 9.08 2.66 9.34 2.86 9.48l2.03 1.58C4.84 11.36 4.8 11.69 4.8 12s0.02 0.64 0.07 0.94l-2.03 1.58c-0.18 0.14-0.23 0.41-0.12 0.61l1.92 3.32c0.12 0.22 0.37 0.29 0.59 0.22l2.39-0.96c0.5 0.38 1.03 0.7 1.62 0.94l0.36 2.54c0.05 0.24 0.24 0.41 0.48 0.41h3.84c0.24 0 0.44-0.17 0.47-0.41l0.36-2.54c0.59-0.24 1.13-0.56 1.62-0.94l2.39 0.96c0.22 0.08 0.47 0 0.59-0.22l1.92-3.32c0.12-0.22 0.07-0.47-0.12-0.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/drawable/ic_launcher_24dp.xml:137: Warning: Very long vector path (1024 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector. [VectorPath]
+    android:pathData="m91.983,49.968a3.122,3.122 0,0 0,-5.463 -1.217,10.145 10.145,0 0,1 -5.822,1.217c-2.341,-0.242 -3.691,-1.319 -5.236,-2.56 -1.678,-1.342 -3.746,-3.004 -6.906,-2.903 -4.948,0.179 -7.804,4.55 -9.911,7.741a22.982,22.982 0,0 1,-2.169 2.965c-0.78,-1.061 -1.779,-3.988 -2.388,-5.822 -1.615,-4.846 -3.278,-9.856 -7.718,-10.324 -3.8,-0.398 -6.001,2.934 -7.929,5.876 -1.561,2.404 -3.215,4.893 -5.119,5.033 -0.78,0.07 -1.561,-0.554 -3.122,-1.967 -2.021,-1.803 -4.745,-4.284 -9.13,-4.284 -5.291,0 -8.256,1.139 -12.229,4.682a3.134,3.134 0,0 0,4.167 4.682c2.684,-2.404 4.066,-3.122 8.061,-3.122 1.881,0 3.122,1.007 4.909,2.661 1.787,1.654 4.23,3.839 7.804,3.574 4.963,-0.375 7.804,-4.682 9.864,-7.804a22.709,22.709 0,0 1,2.091 -2.872c0.819,1.069 1.842,4.136 2.419,5.868 1.615,4.815 3.285,9.809 7.71,10.278a5.9,5.9 0,0 0,0.593 0c3.449,0 5.541,-3.184 7.398,-6.009 1.498,-2.279 3.2,-4.862 4.924,-4.924 0.734,-0.039 1.35,0.398 2.77,1.561 1.826,1.467 4.323,3.473 8.498,3.902 5.369,0.562 10.02,-1.896 11.206,-3.27a3.239,3.239 0,0 0,0.726 -2.965z"
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "VectorPath":
+   Using long vector paths is bad for performance. There are several ways to
+   make the pathData shorter:
+   * Using less precision
+   * Removing some minor details
+   * Using the Android Studio vector conversion tool
+   * Rasterizing the image (converting to PNG)
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/layout/open_collective_donation_fragment.xml:6: Warning: Possible overdraw: Root element paints background ?attr/selectableItemBackground with a theme that also paints a background (inferred theme is @style/Theme.App) [Overdraw]
+  android:background="?attr/selectableItemBackground"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:94: Warning: The resource R.string.support_development__donate_google_play_description appears to be unused [UnusedResources]
+    <string name="support_development__donate_google_play_description">Your payment will be securely handled by Google Play. Depending on your location, additional taxes _may be_ added to the final amount.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:158: Warning: The resource R.string.failed_to_load_inapp_purchases appears to be unused [UnusedResources]
+    <string name="failed_to_load_inapp_purchases">Failed to load in-app purchase details. Please try again later!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ashu/code/trynoice/android-app/app/src/main/res/values/strings.xml:159: Warning: The resource R.string.failed_to_purchase appears to be unused [UnusedResources]
+    <string name="failed_to_purchase">Failed to start payment flow. Please try again later!</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests=true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests=true.
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/values-fa/strings.xml:32: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+    <string name="appintro__chromecast_desc">از Noice برای انداختن صدای محیطی آن به دیگر وسایل دارای Chromecast مثل بلندگوها، تلویزیون و ... استفاده کنید.</string>
+                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "TypographyEllipsis":
+   You can replace the string "..." with a dedicated ellipsis character,
+   ellipsis character (u2026, &#8230;). This can help make the text more
+   readable.
+
+   https://en.wikipedia.org/wiki/Ellipsis
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/mipmap-hdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+/home/ashu/code/trynoice/android-app/app/src/main/res/mipmap-mdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+/home/ashu/code/trynoice/android-app/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+/home/ashu/code/trynoice/android-app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+/home/ashu/code/trynoice/android-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+
+   Explanation for issues of type "IconDuplicates":
+   If an icon is repeated under different names, you can consolidate and just
+   use one of the icons and delete the others to make your application
+   smaller. However, duplicated icons usually are not intentional and can
+   sometimes point to icons that were accidentally overwritten or accidentally
+   not updated.
+
+/home/ashu/code/trynoice/android-app/app/src/main/res/layout/cancel_subscription_fragment.xml:64: Warning: Cancel button should be on the left (was "Dismiss | Cancel", should be "Cancel | Dismiss") [ButtonOrder]
+        <Button
+         ~~~~~~
+
+   Explanation for issues of type "ButtonOrder":
+   According to the Android Design Guide,
+
+   "Action buttons are typically Cancel and/or OK, with OK indicating the
+   preferred or most likely action. However, if the options consist of
+   specific actions such as Close or Wait rather than a confirmation or
+   cancellation of the action described in the content, then all the buttons
+   should be active verbs. As a rule, the dismissive action of a dialog is
+   always on the left whereas the affirmative actions are on the right."
+
+   This check looks for button bars and buttons which look like cancel
+   buttons, and makes sure that these are on the left.
+
+   https://material.io/components/dialogs/
+
+265 errors, 34 warnings

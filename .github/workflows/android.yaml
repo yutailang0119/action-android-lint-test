@@ -1,0 +1,22 @@
+name: Android
+on:
+  - push
+  - pull_request
+
+env:
+  JAVA_VERSION: 11
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: ${{ env.JAVA_VERSION }}
+      - uses: actions/checkout@v3
+      - uses: yutailang0119/action-android-lint@v3
+        with:
+          report-path: "**/build/reports/*.xml"
